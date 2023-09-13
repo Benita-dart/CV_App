@@ -61,3 +61,8 @@ One of the app's key features is real-time updates. When you make changes to you
 
 ## Assumptions Made
 This app assumes that you have a Flutter development environment set up and running.
+
+## Release Version Demo
+```bash
+https://appetize.io/app/5mziafuwgkgqytfswi6mniujnu?device=pixel4&osVersion=11.0&scale=75
+```
