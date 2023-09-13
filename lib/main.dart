@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     UserDetails userDetails = UserDetails(
       fullName: 'Benita Ogechi Eze',
       slackUsername: 'Benita Eze',
-      githubHandle: 'BenitaR-png',
+      githubHandle: 'Benita-dart',
       bio:
       'As a seasoned Flutter Developer, I specialize in crafting cross-platform mobile applications that set the bar high. My expertise in Dart empowers me to create high-performance apps that seamlessly run on both iOS and Android. I specialize in designing an intuitive UI, optimizing code for peak performance, or implementing cutting-edge features.',
     );
@@ -52,55 +52,57 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('My CV'),
       ),
-      body: Center(
-        child: Container(
-          width: 300, // Set a fixed width for the parent container
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildInfoContainer(
-                'Full Name',
-                _updatedUserDetails.fullName,
-              ),
-              _buildInfoContainer(
-                'Slack Username',
-                _updatedUserDetails.slackUsername,
-              ),
-              _buildInfoContainer(
-                'GitHub Handle',
-                _updatedUserDetails.githubHandle,
-              ),
-              const SizedBox(height: 20),
-              _buildInfoContainer(
-                'Brief Bio',
-                _updatedUserDetails.bio,
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () async {
-                  final result = await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => EditDetailsPage(
-                        userDetails: _updatedUserDetails,
-                        onUpdate: (updatedDetails) {
-                          setState(() {
-                            _updatedUserDetails = updatedDetails;
-                          });
-                        },
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            width: 300, // Set a fixed width for the parent container
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildInfoContainer(
+                  'Full Name',
+                  _updatedUserDetails.fullName,
+                ),
+                _buildInfoContainer(
+                  'Slack Username',
+                  _updatedUserDetails.slackUsername,
+                ),
+                _buildInfoContainer(
+                  'GitHub Handle',
+                  _updatedUserDetails.githubHandle,
+                ),
+                const SizedBox(height: 20),
+                _buildInfoContainer(
+                  'Brief Bio',
+                  _updatedUserDetails.bio,
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () async {
+                    final result = await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EditDetailsPage(
+                          userDetails: _updatedUserDetails,
+                          onUpdate: (updatedDetails) {
+                            setState(() {
+                              _updatedUserDetails = updatedDetails;
+                            });
+                          },
+                        ),
                       ),
-                    ),
-                  );
+                    );
 
-                  if (result != null) {
-                    setState(() {
-                      _updatedUserDetails = result;
-                    });
-                  }
-                },
-                child: const Text('Edit'),
-              ),
-            ],
+                    if (result != null) {
+                      setState(() {
+                        _updatedUserDetails = result;
+                      });
+                    }
+                  },
+                  child: const Text('Edit'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
