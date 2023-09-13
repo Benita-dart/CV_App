@@ -58,3 +58,6 @@ The details are presented in a clean and visually appealing format.
 
 ## Real-Time Updates
 One of the app's key features is real-time updates. When you make changes to your CV details on the edit screen and click "Save," the updated information is immediately reflected on the home screen without the need to refresh.
+
+## Assumptions Made
+This app assumes that you have a Flutter development environment set up and running.
